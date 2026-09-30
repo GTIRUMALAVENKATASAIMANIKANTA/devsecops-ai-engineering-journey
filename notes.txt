@@ -1444,3 +1444,35 @@ Example History:
 
 Commit 2 -> feat: add system information script
 Commit 1 -> docs: add Linux fundamentals notes
+
+==================================================
+GIT FILE STATES
+==================================================
+
+Untracked:
+File project folder lo undi but Git inka track cheyyatledu.
+
+Tracked:
+File Git history lo already record ayyindi.
+
+Modified:
+Tracked file ni last commit tarvatha change chesam.
+
+Staged:
+Changes next commit kosam ready chesam.
+
+Committed:
+Changes Git history lo snapshot/save point ga record ayyayi.
+
+
+Basic Flow:
+
+Untracked / Modified
+        ↓
+     git add
+        ↓
+      Staged
+        ↓
+    git commit
+        ↓
+     Committed
