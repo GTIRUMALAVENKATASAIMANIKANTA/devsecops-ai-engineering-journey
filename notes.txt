@@ -1491,3 +1491,52 @@ Git ki file inka track/history lo ledu.
 Modified:
 Git already track chestunna file ni last commit
 tarvatha change chesam.
+
+==================================================
+STAGED VS UNSTAGED
+==================================================
+
+Unstaged:
+File ni modify chesam but next commit kosam
+inka prepare/select cheyyaledu.
+
+Staged:
+Modified changes ni git add use chesi
+next commit kosam ready chesam.
+
+
+git diff
+--------
+Unstaged changes ni chupistundi.
+
+
+git diff --staged
+-----------------
+Staging Area lo unna changes ni chupistundi.
+
+
+Flow:
+
+File Modified
+     ↓
+UNSTAGED
+     ↓
+git add
+     ↓
+STAGED
+     ↓
+git commit
+     ↓
+COMMITTED
+
+
+Important:
+
+git status
+= Files current state enti?
+
+git diff
+= Unstaged lo exact changes enti?
+
+git diff --staged
+= Next commit lo vellaboye staged changes enti?
