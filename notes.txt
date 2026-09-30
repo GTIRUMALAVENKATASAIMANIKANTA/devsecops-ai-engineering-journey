@@ -1342,3 +1342,105 @@ Untracked/Modified File
     git commit
         ↓
     Git History
+
+git config
+----------
+Git configuration settings manage cheyyadaniki use chestham.
+
+git config --global user.name "NAME"
+------------------------------------
+Git commits ki author name configure chestundi.
+
+--global:
+Ee computer lo current user use chese Git repositories
+annitiki setting apply avutundi.
+
+Example:
+git config --global user.name "Manikanta"
+
+
+git config --global user.email "EMAIL"
+--------------------------------------
+Git commits ki author email configure chestundi.
+
+Example:
+git config --global user.email "GitHub account email"
+
+
+Verify:
+
+git config --global user.name
+git config --global user.email
+
+DevOps Use:
+Team repository lo commit evaru create chesaro
+Git history dwara identify cheyyadaniki.
+
+git commit
+----------
+Staging Area lo ready ga unna changes ni Git history lo
+snapshot/save point ga record chestundi.
+
+Example:
+git commit -m "docs: add Linux fundamentals notes"
+
+-m:
+Commit ki message/description ivvadaniki.
+
+root-commit:
+Repository lo first commit.
+
+Commit ID / Hash:
+Prathi commit ki Git unique ID istundi.
+Example: dd5e5aa
+
+git log
+-------
+Git commit history chudadaniki.
+
+git log --oneline
+-----------------
+Commit history ni short one-line format lo chupistundi.
+
+Important Flow:
+
+File change
+   ↓
+git add
+   ↓
+Ready/Staged
+   ↓
+git commit
+   ↓
+Save Point / Snapshot
+   ↓
+Git History
+
+Untracked File
+--------------
+File computer/project folder lo undi,
+kani Git inka aa file ni track cheyyadam start cheyyaledu.
+
+git add system-info.sh
+----------------------
+system-info.sh ni next commit/save point kosam
+Staging Area lo ready chestundi.
+
+git commit -m "feat: add system information script"
+---------------------------------------------------
+Staged system-info.sh changes ni Git history lo
+new snapshot/save point ga record chestundi.
+
+feat:
+Commit message prefix.
+Project ki new feature/functionality add chesinappudu
+commonly use chestaru.
+
+git log --oneline
+-----------------
+Commit history ni short format lo chupistundi.
+
+Example History:
+
+Commit 2 -> feat: add system information script
+Commit 1 -> docs: add Linux fundamentals notes
