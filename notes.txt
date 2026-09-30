@@ -1,0 +1,1344 @@
+==================================================
+DAY 1 - LINUX FUNDAMENTALS
+DevSecOps + AI Learning Journey
+==================================================
+
+1. pwd
+------
+
+Command:
+pwd
+
+Meaning:
+Print Working Directory.
+
+Use:
+Manam currently ye directory/folder lo unnam ani telusukovadaniki.
+
+Example:
+pwd
+
+Example output:
+/home/tirumala
+
+
+2. ls
+-----
+
+Command:
+ls
+
+Meaning:
+Current directory lo unna files and folders ni list chestundi.
+
+Use:
+Oka folder lo em files/folders unnayo chudadaniki.
+
+Example:
+ls
+
+
+3. ls -la
+---------
+
+Command:
+ls -la
+
+Meaning:
+Files/folders ni detailed information tho chupistundi.
+
+-l = long listing format
+-a = hidden files kuda chupistundi
+
+Use:
+Permissions, owner, group, size, modified date,
+hidden files etc. chudadaniki.
+
+Hidden files usually "." tho start avutayi.
+
+Examples:
+.bashrc
+.gitconfig
+.ssh
+
+
+4. cd
+-----
+
+Command:
+cd DIRECTORY
+
+Meaning:
+Change Directory.
+
+Use:
+Oka directory nunchi vere directory ki velladaniki.
+
+Example:
+cd ~/Downloads
+
+Mana project example:
+cd ~/devsecops+Ai_practice/day-01-linux
+
+
+5. ~
+----
+
+Meaning:
+Current user's home directory.
+
+Mana system lo:
+~ = /home/tirumala
+
+Example:
+cd ~
+
+Meaning:
+Home directory ki velladam.
+
+
+6. .
+----
+
+Meaning:
+Current directory.
+
+Example:
+./hello.sh
+
+Meaning:
+Current directory lo unna hello.sh ni execute cheyyi.
+
+
+7. ..
+-----
+
+Meaning:
+Parent directory / one directory back.
+
+Example:
+cd ..
+
+Meaning:
+Current directory nunchi parent directory ki velladam.
+
+Example:
+mv notes.txt ..
+
+Meaning:
+notes.txt ni parent directory ki move cheyyadam.
+
+
+8. mkdir
+--------
+
+Command:
+mkdir DIRECTORY_NAME
+
+Meaning:
+Make Directory.
+
+Use:
+New folder/directory create cheyyadaniki.
+
+Example:
+mkdir backup
+
+
+9. touch
+--------
+
+Command:
+touch FILE_NAME
+
+Meaning:
+File lekapothe empty file create chestundi.
+
+Use:
+New files quickly create cheyyadaniki.
+
+Examples:
+touch notes.txt
+touch commands.txt
+touch hello.sh
+
+
+10. echo
+--------
+
+Command:
+echo "TEXT"
+
+Meaning:
+Text ni terminal lo display chestundi.
+
+Example:
+echo "Hello Linux"
+
+File lo write cheyyadaniki:
+echo "Linux Day 1" > notes.txt
+
+
+11. >
+-----
+
+Meaning:
+Output ni file lo write chestundi.
+
+IMPORTANT:
+Existing content unte overwrite chestundi.
+
+Example:
+echo "Linux Day 1" > notes.txt
+
+
+12. >>
+------
+
+Meaning:
+Existing file content delete cheyyakunda
+new content last lo append chestundi.
+
+Example:
+echo "DevSecOps journey started" >> notes.txt
+
+Difference:
+
+>  = overwrite
+>> = append
+
+
+13. cat
+-------
+
+Command:
+cat FILE_NAME
+
+Meaning:
+File content terminal lo display chestundi.
+
+Use:
+Small text/config/script files quickly chudadaniki.
+
+Example:
+cat notes.txt
+
+Example:
+cat system-info.sh
+
+
+14. cp
+------
+
+Command:
+cp SOURCE DESTINATION
+
+Meaning:
+Copy.
+
+Use:
+File ni copy/duplicate cheyyadaniki.
+
+Example:
+cp notes.txt notes-backup.txt
+
+Meaning:
+notes.txt copy create chesi
+notes-backup.txt ani save chestundi.
+
+
+15. mv
+------
+
+Command:
+mv SOURCE DESTINATION
+
+Meaning:
+Move or Rename.
+
+RENAME Example:
+mv notes-backup.txt linux-notes.txt
+
+Meaning:
+notes-backup.txt ni linux-notes.txt ga rename chestundi.
+
+MOVE Example:
+mv notes.txt backup/
+
+Meaning:
+notes.txt ni backup folder loki move chestundi.
+
+Move + Rename:
+mv file.txt backup/newfile.txt
+
+
+16. rm
+------
+
+Command:
+rm FILE_NAME
+
+Meaning:
+Remove/Delete file.
+
+Example:
+rm linux-notes.txt
+
+Use:
+Unwanted files delete cheyyadaniki.
+
+IMPORTANT:
+rm use chestappudu careful ga undali.
+Linux lo deleted files easy ga recover avvakapovachu.
+
+Especially rm -rf commands ni blindly use cheyyakudadhu.
+
+
+==================================================
+LINUX FILE PERMISSIONS
+==================================================
+
+Linux permissions:
+
+r = Read    = 4
+w = Write   = 2
+x = Execute = 1
+
+
+Example:
+
+rwx
+
+4 + 2 + 1 = 7
+
+rw-
+
+4 + 2 = 6
+
+r-x
+
+4 + 1 = 5
+
+r--
+
+4
+
+
+Permissions three categories ki apply avutayi:
+
+Owner
+Group
+Others
+
+
+Example:
+
+rwxr-xr--
+
+Breakdown:
+
+Owner  = rwx
+Group  = r-x
+Others = r--
+
+
+17. ls -l
+---------
+
+Command:
+ls -l FILE_NAME
+
+Use:
+File permissions and detailed information chudadaniki.
+
+Example:
+ls -l hello.sh
+
+
+18. chmod
+---------
+
+Meaning:
+Change Mode.
+
+Use:
+File permissions change cheyyadaniki.
+
+Example:
+chmod +x hello.sh
+
+Meaning:
+hello.sh ki execute permission add chestundi.
+
+
+19. chmod 755
+-------------
+
+Command:
+chmod 755 hello.sh
+
+Calculation:
+
+Owner:
+7 = 4+2+1 = rwx
+
+Group:
+5 = 4+1 = r-x
+
+Others:
+5 = 4+1 = r-x
+
+Result:
+rwxr-xr-x
+
+Use:
+Executable scripts/programs ki commonly use chestham.
+
+
+20. chmod 644
+-------------
+
+Command:
+chmod 644 notes.txt
+
+Owner:
+6 = rw-
+
+Group:
+4 = r--
+
+Others:
+4 = r--
+
+Result:
+rw-r--r--
+
+Use:
+Normal text/config files ki common permission.
+
+
+21. chmod 700
+-------------
+
+Example:
+chmod 700 secret.sh
+
+Owner  = rwx
+Group  = ---
+Others = ---
+
+Result:
+rwx------
+
+Use:
+Owner ki matrame permissions ivvali anukunappudu.
+
+
+==================================================
+SYSTEM INFORMATION COMMANDS
+==================================================
+
+22. whoami
+----------
+
+Command:
+whoami
+
+Meaning:
+Currently logged-in/running user name chupistundi.
+
+Example output:
+tirumala
+
+DevOps Use:
+Server lo ye user account tho commands execute
+chestunnamo verify cheyyadaniki.
+
+
+23. hostname
+------------
+
+Command:
+hostname
+
+Meaning:
+Computer/server hostname chupistundi.
+
+DevOps Use:
+Multiple servers manage chestunnappudu
+manam ye server lo unnam ani identify cheyyadaniki.
+
+
+24. uname -r
+------------
+
+Command:
+uname -r
+
+Meaning:
+Linux kernel release/version chupistundi.
+
+-r = kernel release
+
+DevOps Use:
+Kernel compatibility and system troubleshooting.
+
+
+25. uptime
+----------
+
+Command:
+uptime
+
+Meaning:
+System entha time nunchi running lo undo
+and system load information chupistundi.
+
+DevOps Use:
+Server recently restart ayyinda?
+Entha time nunchi running lo undi?
+System load ela undi?
+ani initial troubleshooting lo check cheyyadaniki.
+
+
+==================================================
+DISK AND MEMORY
+==================================================
+
+26. df -h
+---------
+
+Command:
+df -h
+
+Meaning:
+Filesystem disk/storage usage chupistundi.
+
+-h = human-readable format (MB/GB)
+
+Important columns:
+
+Size  = Total disk size
+Used  = Used storage
+Avail = Available storage
+Use%  = Usage percentage
+
+DevOps Use:
+Server disk full ayyinda ani check cheyyadaniki.
+
+
+27. free -h
+-----------
+
+Command:
+free -h
+
+Meaning:
+System RAM/memory usage chupistundi.
+
+-h = human-readable
+
+Important:
+
+total     = Total RAM
+used      = Used RAM
+free      = Completely unused RAM
+available = Applications ki available memory
+swap      = Disk-based backup/virtual memory
+
+DevOps Use:
+Server memory pressure / RAM problems
+troubleshoot cheyyadaniki.
+
+
+28. du -sh .
+------------
+
+Command:
+du -sh .
+
+Meaning:
+Current directory entha disk space use chestundo chupistundi.
+
+du = Disk Usage
+-s = Summary
+-h = Human-readable
+.  = Current directory
+
+Example:
+du -sh /var/log
+
+Meaning:
+/var/log directory total size chudadam.
+
+Important Difference:
+
+df -h
+= Entire filesystem/disk usage
+
+du -sh DIRECTORY
+= Particular directory usage
+
+free -h
+= RAM/memory usage
+
+
+==================================================
+LINUX PROCESSES
+==================================================
+
+Process Meaning:
+Currently running program ni process antaru.
+
+Examples:
+Browser running = process
+Terminal running = process
+Python running = process
+
+
+PID:
+Process ID.
+
+Prathi running process ki Linux unique number istundi.
+
+
+29. ps
+------
+
+Command:
+ps
+
+Meaning:
+Process Status.
+
+Use:
+Current terminal/session related processes chudadaniki.
+
+Important:
+PID = Process ID
+CMD = Running command/program
+
+
+30. ps aux
+----------
+
+Command:
+ps aux
+
+Meaning:
+System lo running unna processes detailed ga chupistundi.
+
+Important columns:
+
+USER    = Process run chestunna user
+PID     = Process ID
+%CPU    = CPU usage
+%MEM    = RAM usage
+VSZ     = Virtual memory size
+RSS     = Physical RAM usage
+TTY     = Terminal information
+STAT    = Process status
+START   = Process start time
+TIME    = CPU time
+COMMAND = Running program/command
+
+DevOps Use:
+High CPU/RAM use chestunna processes identify cheyyadaniki.
+
+
+31. top
+-------
+
+Command:
+top
+
+Meaning:
+Processes, CPU and memory usage ni live ga monitor chestundi.
+
+Use:
+Server performance live ga monitor cheyyadaniki.
+
+Exit:
+q
+
+q press chesthe top nunchi exit avutam.
+
+
+32. grep
+--------
+
+Command Example:
+ps aux | grep bash
+
+Meaning:
+grep text/pattern ni search/filter chestundi.
+
+Use:
+Large output lo manaki kavalsina information matrame find cheyyadaniki.
+
+Example:
+cat notes.txt | grep Linux
+
+
+33. |
+-----
+
+Name:
+Pipe
+
+Meaning:
+First command output ni second command ki input ga pampistundi.
+
+Example:
+ps aux | grep bash
+
+Flow:
+
+ps aux
+   |
+   v
+All processes
+   |
+   v
+grep bash
+   |
+   v
+bash related lines only
+
+
+34. sleep
+---------
+
+Command:
+sleep 300
+
+Meaning:
+Process 300 seconds wait chestundi.
+
+300 seconds = 5 minutes.
+
+Without "&":
+sleep 300
+
+Process foreground lo run avutundi.
+Terminal prompt process complete ayyevaraku available undadu.
+
+
+35. &
+-----
+
+Example:
+sleep 300 &
+
+Meaning:
+Process ni background lo run chestundi.
+
+Use:
+Process background lo run avutunna same terminal lo
+vere commands execute cheyyachu.
+
+Example output:
+[1] 5255
+
+[1]  = Job number
+5255 = PID
+
+
+36. ps -p PID
+-------------
+
+Example:
+ps -p 5255
+
+Meaning:
+Specific PID/process details chudadaniki.
+
+-p = particular PID select cheyyadam.
+
+Use:
+Specific process running lo undo ledo verify cheyyadaniki.
+
+
+37. pgrep
+---------
+
+Command:
+pgrep PROCESS_NAME
+
+Example:
+pgrep sleep
+
+Meaning:
+Process name batti PID find chestundi.
+
+Use:
+PID quick ga identify cheyyadaniki.
+
+
+38. kill
+--------
+
+Command:
+kill PID
+
+Example:
+kill 5255
+
+Meaning:
+Specified process ki termination signal pampistundi.
+
+Use:
+Running/stuck process ni stop cheyyadaniki.
+
+
+39. kill -9
+-----------
+
+Command:
+kill -9 PID
+
+Meaning:
+Process ni forcefully terminate chestundi.
+
+IMPORTANT:
+First normal kill use cheyyali.
+
+kill PID
+
+Process respond kakapothe last resort ga:
+
+kill -9 PID
+
+use cheyyali.
+
+
+40. Ctrl + C
+------------
+
+Meaning:
+Current foreground process/command ni interrupt cheyyadaniki.
+
+Example:
+
+sleep 300
+
+run chestunnappudu:
+
+Ctrl + C
+
+press chesthe foreground sleep process stop avutundi.
+
+
+==================================================
+SUDO AND PACKAGE MANAGEMENT
+==================================================
+
+41. sudo
+--------
+
+Meaning:
+Administrator/root privileges tho command execute cheyyadaniki.
+
+Use:
+System-level operations kosam.
+
+Examples:
+Software installation
+System updates
+Service management
+Protected configuration changes
+
+Example:
+sudo apt update
+
+IMPORTANT:
+sudo powerful.
+Unknown commands ni blindly sudo tho execute cheyyakudadhu.
+
+
+42. apt
+-------
+
+Meaning:
+Ubuntu/Debian package manager.
+
+Use:
+Software/packages install, update, upgrade,
+remove cheyyadaniki.
+
+
+43. sudo apt update
+-------------------
+
+Command:
+sudo apt update
+
+Meaning:
+Latest available package information/list ni refresh chestundi.
+
+IMPORTANT:
+Installed software ni actual ga upgrade cheyyadu.
+
+Simple meaning:
+"Latest packages information teesukura."
+
+
+44. sudo apt upgrade
+--------------------
+
+Command:
+sudo apt upgrade
+
+Meaning:
+Already installed packages ki available newer
+versions ni install chestundi.
+
+
+45. sudo apt install
+--------------------
+
+Example:
+sudo apt install git
+
+Meaning:
+Package/software install cheyyadaniki.
+
+Breakdown:
+
+sudo    = Administrator privileges
+apt     = Package manager
+install = Installation operation
+git     = Package name
+
+
+46. -y
+------
+
+Example:
+sudo apt install git -y
+
+Meaning:
+Installation confirmation questions ki
+automatically YES ani answer chestundi.
+
+DevOps Use:
+Automation scripts lo manual Y confirmation avoid cheyyadaniki.
+
+
+47. sudo apt remove
+-------------------
+
+Example:
+sudo apt remove git
+
+Meaning:
+Installed package ni remove/uninstall chestundi.
+
+NOTE:
+Git manaki kavali.
+Kabatti example matrame; run cheyyaledu.
+
+
+48. git --version
+-----------------
+
+Command:
+git --version
+
+Meaning:
+Git system lo installed undo ledo
+and version ento check cheyyadaniki.
+
+Use:
+Tool already installed aa ani verify cheyyadaniki.
+
+
+==================================================
+LINUX SERVICES
+==================================================
+
+Service Meaning:
+
+Background lo run ayye system/application component.
+
+Examples:
+SSH
+Nginx
+PostgreSQL
+Docker
+
+
+49. systemctl
+-------------
+
+Meaning:
+systemd services ni manage/check cheyyadaniki use chestham.
+
+
+50. systemctl status
+--------------------
+
+Example:
+systemctl status nginx
+
+Meaning:
+Service current status check chestundi.
+
+Possible states:
+active
+inactive
+failed
+
+Use:
+Service running aa / stopped aa / failed aa
+ani troubleshoot cheyyadaniki.
+
+
+51. systemctl start
+-------------------
+
+Example:
+sudo systemctl start nginx
+
+Meaning:
+Service ni NOW start chestundi.
+
+
+52. systemctl stop
+------------------
+
+Example:
+sudo systemctl stop nginx
+
+Meaning:
+Running service ni stop chestundi.
+
+
+53. systemctl restart
+---------------------
+
+Example:
+sudo systemctl restart nginx
+
+Meaning:
+Service ni stop chesi malli start chestundi.
+
+Use:
+Configuration changes tarvatha service restart
+cheyyalsina situations lo useful.
+
+
+54. systemctl enable
+--------------------
+
+Example:
+sudo systemctl enable nginx
+
+Meaning:
+System/server boot ayinappudu service automatic ga
+start ayyela configure chestundi.
+
+
+55. systemctl disable
+---------------------
+
+Example:
+sudo systemctl disable nginx
+
+Meaning:
+Boot time automatic startup ni disable chestundi.
+
+
+IMPORTANT:
+
+START != ENABLE
+
+start:
+Service ni ippudu start chestundi.
+
+enable:
+Future lo system boot ayinappudu automatic ga
+service start ayyela configure chestundi.
+
+
+Additional useful commands:
+
+systemctl is-active nginx
+= Service currently active aa check.
+
+systemctl is-enabled nginx
+= Boot automatic startup enabled aa check.
+
+systemctl list-units --type=service
+= Loaded services list chudadaniki.
+
+
+==================================================
+BASH / SHELL SCRIPTING
+==================================================
+
+56. nano
+--------
+
+Example:
+nano system-info.sh
+
+Meaning:
+Terminal-based text editor.
+
+Use:
+Scripts, configuration files and text files
+create/edit cheyyadaniki.
+
+Nano controls:
+
+Ctrl + O = Save/Write
+Enter    = Confirm filename
+Ctrl + X = Exit
+
+
+57. .sh
+-------
+
+Example:
+system-info.sh
+
+.sh usually shell script file ani indicate chestundi.
+
+
+58. #!/bin/bash
+---------------
+
+Name:
+Shebang
+
+Meaning:
+Ee script ni Bash interpreter tho execute
+cheyyamani system ki cheptundi.
+
+Usually shell script first line:
+
+#!/bin/bash
+
+
+59. ./system-info.sh
+-------------------
+
+Meaning:
+Current directory lo unna system-info.sh
+script ni execute cheyyadam.
+
+./ = Current directory
+
+
+==================================================
+DAY 1 MINI PROJECT
+==================================================
+
+Project:
+Linux System Information Script
+
+File:
+system-info.sh
+
+Script:
+
+#!/bin/bash
+
+echo "===== SYSTEM INFORMATION ====="
+
+echo "User:"
+whoami
+
+echo "Hostname:"
+hostname
+
+echo "Kernel:"
+uname -r
+
+echo "Uptime:"
+uptime
+
+echo "Disk Usage:"
+df -h
+
+echo "Memory Usage:"
+free -h
+
+
+Purpose:
+
+Multiple Linux system-information commands ni
+manually execute cheyyakunda oka script tho
+automatically execute cheyyadam.
+
+Commands used:
+
+nano system-info.sh
+chmod +x system-info.sh
+./system-info.sh
+
+
+==================================================
+AUTOMATION CONCEPT
+==================================================
+
+Manual:
+
+whoami
+hostname
+uname -r
+uptime
+df -h
+free -h
+
+Prathi command separate ga run cheyyali.
+
+Automation:
+
+Commands anni system-info.sh lo store chesam.
+
+Then:
+
+./system-info.sh
+
+okka command tho anni commands execute ayyayi.
+
+DevOps lo automation important because repetitive
+manual work ni scripts/tools tho automate chestham.
+
+
+==================================================
+TROUBLESHOOTING LEARNED
+==================================================
+
+Problem:
+
+system-info.sh run chesinappudu:
+
+command not found
+
+errors vachayi.
+
+Reason:
+
+Example ga script lo:
+
+User:
+
+ani direct text rasam.
+
+Bash "User:" ni command ani execute cheyyadaniki
+try chesindi.
+
+Correct:
+
+echo "User:"
+
+echo text ni terminal lo display chestundi.
+
+Troubleshooting process:
+
+1. Error message chusam.
+2. Error line number identify chesam.
+3. Script nano tho open chesam.
+4. Wrong lines correct chesam.
+5. cat tho content verify chesam.
+6. Script malli execute chesam.
+7. Problem solve ayyindi.
+
+DevOps Lesson:
+
+Error vaste panic avvakudadhu.
+
+Error message
+    ↓
+Affected command/file
+    ↓
+Root cause
+    ↓
+Fix
+    ↓
+Verify
+
+
+==================================================
+QUICK REVISION
+==================================================
+
+pwd        = Current directory
+ls         = Files/folders list
+ls -la     = Detailed + hidden files
+cd         = Change directory
+mkdir      = Create directory
+touch      = Create empty file
+cat        = Display file content
+cp         = Copy
+mv         = Move/Rename
+rm         = Delete
+echo       = Display/write text
+>          = Overwrite
+>>         = Append
+chmod      = Change permissions
+
+whoami     = Current user
+hostname   = System/server name
+uname -r   = Kernel version
+uptime     = System uptime/load
+
+df -h      = Filesystem disk usage
+du -sh     = Directory disk usage
+free -h    = RAM usage
+
+ps         = Process status
+ps aux     = Detailed processes
+top        = Live process monitoring
+grep       = Search/filter
+|          = Pipe
+pgrep      = Find PID using process name
+kill       = Stop process
+
+sudo       = Admin/root privileges
+apt        = Package manager
+apt update = Refresh package information
+apt upgrade= Upgrade installed packages
+apt install= Install package
+apt remove = Remove package
+
+systemctl  = Manage services
+status     = Check service
+start      = Start now
+stop       = Stop
+restart    = Restart
+enable     = Auto-start on boot
+disable    = Disable auto-start
+
+nano       = Terminal text editor
+#!/bin/bash= Bash shebang
+.sh        = Shell script
+./file.sh  = Execute script from current directory
+
+git add
+-------
+Files/changes ni Staging Area ki add chestundi.
+
+Example:
+git add notes.txt
+
+Meaning:
+notes.txt current changes ni next commit lo include
+cheyyadaniki prepare chestundi.
+
+Important:
+git add GitHub ki upload cheyyadu.
+
+Flow:
+Untracked/Modified File
+        ↓
+     git add
+        ↓
+    Staging Area
+        ↓
+    git commit
+        ↓
+    Git History
