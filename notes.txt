@@ -1476,3 +1476,18 @@ Untracked / Modified
     git commit
         ↓
      Committed
+
+Git diff practice
+
+git status
+= Which files changed?
+
+git diff
+= What exactly changed inside tracked files?
+
+Untracked:
+Git ki file inka track/history lo ledu.
+
+Modified:
+Git already track chestunna file ni last commit
+tarvatha change chesam.
