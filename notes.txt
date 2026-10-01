@@ -1576,3 +1576,120 @@ Current branch ni "main" ga rename chestundi.
 git branch = Branches manage cheyyadaniki.
 -M         = Branch rename/move.
 main       = New branch name.
+
+Remote
+------
+Local Git repository ki outside/online lo unna
+Git repository connection ni remote antaru.
+
+origin
+------
+Remote repository ki commonly use chese nickname.
+
+origin special GitHub command kaadu.
+Adi remote repository ki name/alias.
+
+
+git remote add origin URL
+-------------------------
+Local Git repository ki GitHub remote repository
+address add chestundi.
+
+Breakdown:
+
+git remote = Remote repositories manage cheyyadam
+add        = New remote add cheyyadam
+origin     = Remote nickname
+URL        = GitHub repository address
+
+
+git remote -v
+-------------
+Configured remote repositories and their URLs
+chupistundi.
+
+fetch = Remote nunchi changes/information receive cheyyadam.
+push  = Local commits remote repository ki send cheyyadam.
+
+git push
+--------
+Local Git commits ni remote repository/GitHub ki
+send chestundi.
+
+git push -u origin main
+-----------------------
+Local main branch commits ni origin remote lo
+main branch ki push chestundi.
+
+git push = Commits upload/send
+-u       = Upstream tracking relationship set
+origin   = Remote repository nickname
+main     = Branch name
+
+First push:
+git push -u origin main
+
+After upstream is configured:
+git push
+
+==================================================
+GIT PUSH & GITHUB
+==================================================
+
+git push
+--------
+Local Git commits ni remote repository/GitHub ki
+send chestundi.
+
+git push -u origin main
+-----------------------
+Local main branch ni origin remote lo unna main
+branch ki push chestundi.
+
+Breakdown:
+
+git push = Local commits remote ki send cheyyadam
+-u       = Upstream tracking relationship set cheyyadam
+origin   = GitHub remote repository nickname
+main     = Branch name
+
+First time:
+git push -u origin main
+
+After upstream is configured:
+git push
+
+origin/main:
+GitHub remote repository lo main branch ni
+represent chestundi.
+
+PAT:
+Personal Access Token.
+
+HTTPS Git authentication kosam token use cheyyachu.
+Token ni password laga secret ga protect cheyyali.
+
+Never:
+- Token ni Git repository lo save cheyyakudadhu
+- notes.txt lo rayakudadhu
+- GitHub ki commit cheyyakudadhu
+- Public ga share cheyyakudadhu
+
+
+FULL BASIC GIT WORKFLOW:
+
+Edit files
+    ↓
+git status
+    ↓
+git diff
+    ↓
+git add <file>
+    ↓
+git diff --staged
+    ↓
+git commit -m "meaningful message"
+    ↓
+git push
+    ↓
+GitHub
