@@ -1540,3 +1540,39 @@ git diff
 
 git diff --staged
 = Next commit lo vellaboye staged changes enti?
+
+==================================================
+GITHUB BASICS
+==================================================
+
+Git:
+Local Version Control System.
+Project changes/history ni track chestundi.
+
+GitHub:
+Git repositories ni online lo host/share/collaborate
+cheyyadaniki platform.
+
+Important:
+git commit = Local Git history lo save point.
+git push   = Local commits ni remote/GitHub ki send chestundi.
+
+
+BRANCH
+------
+
+Branch ante project development line/version.
+
+master/main:
+Repository primary branch names ga use chestaru.
+
+Modern repositories lo "main" commonly use chestaru.
+
+
+git branch -M main
+------------------
+Current branch ni "main" ga rename chestundi.
+
+git branch = Branches manage cheyyadaniki.
+-M         = Branch rename/move.
+main       = New branch name.
