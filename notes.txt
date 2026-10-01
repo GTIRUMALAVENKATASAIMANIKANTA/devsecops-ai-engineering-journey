@@ -1693,3 +1693,85 @@ git commit -m "meaningful message"
 git push
     ↓
 GitHub
+
+==================================================
+GITHUB SSH AUTHENTICATION
+==================================================
+
+SSH:
+Secure Shell.
+
+GitHub tho secure authentication kosam SSH keys
+use cheyyachu.
+
+SSH Key Pair:
+
+Private Key:
+~/.ssh/id_ed25519
+
+Public Key:
+~/.ssh/id_ed25519.pub
+
+Private key:
+Laptop lo secret ga undali.
+Never share or upload it.
+
+Public key:
+GitHub account ki add cheyyachu.
+
+
+ssh-keygen
+----------
+SSH key pair create cheyyadaniki.
+
+Example:
+ssh-keygen -t ed25519 -C "email"
+
+
+ssh-agent
+---------
+SSH private keys ni current session lo manage chestundi.
+
+
+ssh-add ~/.ssh/id_ed25519
+-------------------------
+Private SSH key ni ssh-agent ki add chestundi.
+
+
+ssh-add -l
+----------
+Agent lo loaded SSH keys list chupistundi.
+
+
+ssh -T git@github.com
+---------------------
+GitHub SSH authentication test chestundi.
+
+
+git remote -v
+-------------
+Current remote repository URLs chupistundi.
+
+
+git remote set-url origin SSH_URL
+---------------------------------
+Existing origin remote URL ni change chestundi.
+
+Manam:
+HTTPS remote
+    ↓
+SSH remote
+
+ki change chesam.
+
+
+HTTPS:
+git push appudu username/token authentication
+avasaram ravachu.
+
+SSH:
+SSH key pair use chesi GitHub authenticate chestundi.
+
+Important:
+Private SSH key ni eppudu GitHub repository,
+notes, chat, email or public place lo share cheyyakudadhu.
