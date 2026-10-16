@@ -537,6 +537,74 @@ Successfully created and resolved a real Git merge conflict and examined the res
 
 **Note:** This was a local hands-on lab performed separately from the main GitHub repository. The lab results are documented here; the separate lab repository has not been published as part of this project.
 
+------
+
+## Module 07 — Git Stash and Production Hotfix Workflow Simulation
+
+**Focus:** Managing unfinished development work, handling urgent hotfixes, restoring stashed changes, and resolving conflicts.
+
+### Concepts Learned
+
+- Git Stash and temporary storage of uncommitted changes
+- Staging and working directory behavior during stash operations
+- Managing and inspecting stash entries
+- Difference between `git stash apply` and `git stash pop`
+- Handling stash application conflicts
+- Unstaging resolved changes
+- Safely cleaning up obsolete stash entries
+- Hotfix branch workflows and fast-forward merging
+
+### Commands Practiced
+
+| Command | Purpose |
+|---|---|
+| `git stash push -m "message"` | Save unfinished work with a description |
+| `git stash list` | View saved stashes |
+| `git stash show -p` | Inspect saved changes |
+| `git switch -c hotfix/api-healthcheck` | Create a hotfix branch |
+| `git merge --ff-only` | Integrate changes using a fast-forward merge |
+| `git stash apply` | Restore saved changes while retaining the stash |
+| `git status` | Inspect conflicts and working directory changes |
+| `git add app.env` | Mark a resolved conflict |
+| `git restore --staged app.env` | Unstage changes while preserving working files |
+| `git stash drop` | Delete a selected stash entry |
+
+### Hands-on Lab — API Configuration Hotfix
+
+**Environment:** Ubuntu Linux, Git, separate local practice repository
+
+**Scenario:** Simulated an urgent application health-check configuration update while unfinished development work was temporarily saved.
+
+**Workflow:**
+1. Modified the application port from `9000` to `9100`.
+2. Stashed the uncommitted change.
+3. Created a dedicated hotfix branch.
+4. Added a simulated health-check configuration.
+5. Committed and fast-forward merged the hotfix.
+6. Restored the original stashed work.
+7. Investigated and manually resolved a stash conflict.
+8. Preserved both the original development change and the hotfix.
+9. Verified the resulting configuration and cleaned up the stash.
+
+**Final Lab Configuration:**
+
+```ini
+APP_PORT=9100
+HEALTH_CHECK_PATH=/health
+```
+
+### Troubleshooting Experience
+
+- Investigated an `Unmerged paths` Git status.
+- Interpreted `Updated upstream` and `Stashed changes` conflict markers.
+- Manually resolved conflicting configuration changes.
+- Verified restored content before deleting the stash entry.
+
+### Learning Outcome
+
+Gained practical experience managing interrupted development work, simulating hotfix branch workflows, applying stashed changes, resolving Git conflicts, and safely cleaning up temporary Git state.
+
+**Lab scope:** This was a local version-control simulation. No running application, production deployment, or live cloud environment was involved.
 ---
 
 # Project Portfolio
@@ -610,7 +678,7 @@ Additional local practice files, such as application logs and temporary configur
 | Git Merge | Practiced |
 | Merge Conflict Resolution Lab | Completed |
 | Git Branch Cleanup | Practiced |
-| Git Stash | Next hands-on topic |
+| Git Stash and Hotfix Workflow | Completed hands-on lab |
 
 *Progress labels distinguish foundational practice from advanced professional proficiency.*
 

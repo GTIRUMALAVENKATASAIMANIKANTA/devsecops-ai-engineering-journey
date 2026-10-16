@@ -1885,3 +1885,108 @@ git switch -c feature-keyvault = Create and switch
 Important Caution:
 Creating a branch does not automatically switch to it. Check git status before switching branches. Avoid deleting branches containing needed unmerged work.
 
+# TOPIC 17: GIT STASH
+
+## Definition
+Git Stash is a Git feature that temporarily stores uncommitted changes and allows developers to restore them later.
+
+## Why Git Stash Is Used
+- To temporarily save unfinished work.
+- To switch tasks without making an unfinished commit.
+- To handle urgent fixes while preserving current progress.
+- To keep work separate during short interruptions.
+
+## Syntax
+```bash
+git stash
+git stash push -m "work in progress"
+```
+
+## Important Commands
+| Command | Purpose |
+|---|---|
+| `git stash` | Save tracked staged and unstaged changes |
+| `git stash list` | Display saved stash entries |
+| `git stash show -p` | Inspect latest stash changes |
+| `git stash apply` | Restore changes without deleting stash |
+| `git stash pop` | Restore changes and remove stash on success |
+| `git stash -u` | Include untracked files |
+| `git stash drop stash@{0}` | Delete a specified stash entry |
+| `git stash clear` | Delete all stash entries; use with extreme caution |
+
+## Real-Time DevOps Scenario
+An engineer is modifying application configuration when a production incident occurs. The engineer temporarily saves incomplete work using Git Stash, creates a hotfix branch, investigates and fixes the issue, follows testing and review procedures, and later restores the unfinished work.
+
+## Important Differences
+- `git stash` temporarily stores local work.
+- `git add` stages selected changes.
+- `git commit` records changes in local project history.
+- `git push` uploads commits to a remote repository.
+- `git stash apply` preserves the saved stash entry.
+- `git stash pop` removes the saved entry after successful application.
+
+## Security and Best Practices
+- Avoid stashing secrets or credentials.
+- Use descriptive stash messages.
+- Always check `git status` before and after using stash.
+- A stash is not a permanent backup or team collaboration mechanism.
+- For long-running work, prefer a dedicated feature branch with meaningful commits.
+
+## Hands-on Practice Goals
+1. Modify a tracked application configuration file.
+2. Save changes using Git Stash.
+3. Verify the working directory state.
+4. Inspect saved stashes.
+5. Restore changes.
+6. Practice an urgent hotfix workflow.
+7. Resolve any conflicts safely.
+
+## Questions and Answers
+
+**Q1. What is Git Stash?**  
+A: It temporarily stores uncommitted changes for later restoration.
+
+**Q2. What is the difference between stash apply and stash pop?**  
+A: Apply restores changes while retaining the stash entry. Pop restores changes and removes the entry on successful application.
+
+**Q3. Does Git Stash push changes to GitHub?**  
+A: No. Stashes are stored locally.
+
+**Q4. Does Git Stash include untracked files by default?**  
+A: No. Use `git stash -u` to include untracked files.
+
+**Q5. When should a DevOps engineer use Git Stash?**  
+A: During short task interruptions, such as temporarily preserving unfinished work while addressing an urgent hotfix.
+
+### Git Stash — Hands-on Lab Results
+
+**Scenario:** Simulated an urgent application health-check hotfix while unfinished configuration changes were stored in Git Stash.
+
+**Practical steps completed:**
+1. Modified a tracked configuration from `APP_PORT=9000` to `APP_PORT=9100`.
+2. Saved unfinished changes using `git stash push -m`.
+3. Inspected the saved changes using `git stash list` and `git stash show -p`.
+4. Created a separate `hotfix/api-healthcheck` branch.
+5. Added `HEALTH_CHECK_PATH=/health` and committed the simulated hotfix.
+6. Integrated the hotfix into `main` using a fast-forward merge.
+7. Applied the original stash and encountered a conflict.
+8. Manually resolved the conflict, preserving both required changes.
+9. Used `git add` to mark the conflict as resolved.
+10. Used `git restore --staged` to return the restored work to an unstaged state.
+11. Deleted the verified stash using `git stash drop`.
+
+**Final configuration:**
+
+```ini
+APP_PORT=9100
+HEALTH_CHECK_PATH=/health
+```
+
+**Important lessons:**
+- `git stash apply` may cause conflicts when the working code has changed.
+- A stash-apply conflict does not require `git merge --continue`.
+- `git add` marks the resolved file in the index.
+- `git restore --staged` unstages changes without deleting working-file modifications.
+- `git stash drop` deletes a selected stash entry, not the restored working files.
+- A stash should not be deleted until the restored work has been verified.
+- This was a local Git workflow simulation, not an actual production deployment.
